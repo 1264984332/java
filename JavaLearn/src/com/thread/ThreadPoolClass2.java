@@ -1,5 +1,6 @@
 package com.thread;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -30,7 +31,7 @@ public class ThreadPoolClass2 {
 		return new ThreadPoolExecutor(5, 10, 20L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 	}
 
-	private static class callable implements java.util.concurrent.Callable<Integer> {
+	private static class callable implements Callable<Integer> {
 		@Override
 		public Integer call() throws Exception {
 			int sum = 0;
