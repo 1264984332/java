@@ -22,9 +22,9 @@ public class CallableClass {
 		RunnableFuture<Integer> future1 = new FutureTask<>(new callableTest1());
 		new Thread(future1).start();
 		while (true) {
-			System.out.println("���߳��ڸ���������...");
+			System.out.println("主线程在干其他事情......");
 			if (future.isDone()) {
-				System.out.println("���̷߳���ֵ: " + future.get() + "  " + future1.get());
+				System.out.println("子线程返回值: " + future.get() + "  " + future1.get());
 				break;
 			}
 			Thread.sleep(5);
