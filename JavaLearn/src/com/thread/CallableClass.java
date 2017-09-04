@@ -5,10 +5,10 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.RunnableFuture;
 
 /**
- * Callable´´½¨²¢Æô¶¯Ïß³ÌµÄ²½ÖèÈçÏÂ: 1.ÊµÏÖCallable½Ó¿Ú²¢ÖØĞ´call()·½·¨; 2.Ê¹ÓÃFutureTaskÀà°ü×°Callable¶ÔÏó;
- * 3.½«FutureTaskÊµÀıÌá½»¸øThread²¢Æô¶¯ĞÂÏß³Ì; 4.Ê¹ÓÃFutureTaskµÄget()»ñÈ¡×ÓÏß³ÌÖ´ĞĞ½áÊøºóµÄ·µ»ØÖµ.
+ * Callableåˆ›å»ºå¹¶å¯åŠ¨çº¿ç¨‹çš„æ­¥éª¤å¦‚ä¸‹: 1.å®ç°Callableæ¥å£å¹¶é‡å†™call()æ–¹æ³•; 2.ä½¿ç”¨FutureTaskç±»åŒ…è£…Callableå¯¹è±¡;
+ * 3.å°†FutureTaskå®ä¾‹æäº¤ç»™Threadå¹¶å¯åŠ¨æ–°çº¿ç¨‹; 4.ä½¿ç”¨FutureTaskçš„get()è·å–å­çº¿ç¨‹æ‰§è¡Œç»“æŸåçš„è¿”å›å€¼.
  *
- * ÓÉÓÚÊµÏÖRunnableºÍCallableµÄ·½Ê½¿ÉÒÔÈÃ¶à¸öÏß³Ì¹²ÏíÍ¬Ò»¸ötarget,Òò´ËÊÊÓÃÓÚ¶à¸öÏß³Ì´¦ÀíÍ¬Ò»·İ×ÊÔ´µÄÇé¿ö,´Ó¶ø½«CPU/´úÂë/Êı¾İ·Ö¿ª.
+ * ç”±äºå®ç°Runnableå’ŒCallableçš„æ–¹å¼å¯ä»¥è®©å¤šä¸ªçº¿ç¨‹å…±äº«åŒä¸€ä¸ªtarget,å› æ­¤é€‚ç”¨äºå¤šä¸ªçº¿ç¨‹å¤„ç†åŒä¸€ä»½èµ„æºçš„æƒ…å†µ,ä»è€Œå°†CPU/ä»£ç /æ•°æ®åˆ†å¼€.
  * 
  * @author zlq
  *
@@ -22,9 +22,9 @@ public class CallableClass {
 		RunnableFuture<Integer> future1 = new FutureTask<>(new callableTest1());
 		new Thread(future1).start();
 		while (true) {
-			System.out.println("Ö÷Ïß³ÌÔÚ¸ÉÆäËûÊÂÇé...");
+			System.out.println("ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...");
 			if (future.isDone()) {
-				System.out.println("×ÓÏß³Ì·µ»ØÖµ: " + future.get() + "  " + future1.get());
+				System.out.println("ï¿½ï¿½ï¿½ß³Ì·ï¿½ï¿½ï¿½Öµ: " + future.get() + "  " + future1.get());
 				break;
 			}
 			Thread.sleep(5);
