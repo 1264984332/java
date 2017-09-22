@@ -18,17 +18,26 @@ public class CallableClass {
 	public static void main(String[] args) throws Exception {
 
 		RunnableFuture<Integer> future = new FutureTask<>(new callableTest());
-		new Thread(future).start();
+		Thread thread = new Thread(future);
+		thread.start();
 		RunnableFuture<Integer> future1 = new FutureTask<>(new callableTest1());
 		new Thread(future1).start();
-		while (true) {
+		/*while (true) {
 			System.out.println("主线程在干其他事情......");
 			if (future.isDone()) {
-				System.out.println("子线程返回值: " + future.get() + "  " + future1.get());
+				System.out.println("子线程返回值: " + future.get() + "  ");
 				break;
 			}
 			Thread.sleep(5);
+		}*/
+		while(true){
+				if(future.get()==55){
+					System.out.println("子线程返回值: " + future.get() + "  ");
+					break;
+				}
+				System.out.println(future.get());
 		}
+		System.out.println(future.get());
 	}
 
 	private static class callableTest implements Callable<Integer> {
@@ -38,6 +47,9 @@ public class CallableClass {
 			int total = 0;
 			for (int i = 1; i <= 10; i++)
 				total += i;
+			if(total==55){
+				return total;
+			}
 			return total;
 		}
 	}
