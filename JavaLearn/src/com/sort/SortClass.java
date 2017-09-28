@@ -8,7 +8,7 @@ public class SortClass {
 		System.out.println("冒泡排序： ");
 		print(array1);
 		int [] array2 = {2,4,51,53,12,3,32,12,11,10};
-		System.out.println("选择排序： ");
+		System.out.println("选择排序12： ");
 		selectionSort(array2);
 		print(array2);
 		int [] array3 = {2,4,51,53,12,3,32,12,11,10};
