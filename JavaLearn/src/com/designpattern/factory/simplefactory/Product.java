@@ -1,18 +1,18 @@
-package com.designpattern.factory;
+package com.designpattern.factory.simplefactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Product2 implements IProduct {
+public class Product implements IProduct {
 
 	public String name;
 
 	public Date productTime;
 
-	public Product2() {
+	public Product() {
 	}
 
-	public Product2(String name, Date date) {
+	public Product(String name, Date date) {
 		this.name = name;
 		this.productTime = date;
 	}
@@ -35,7 +35,7 @@ public class Product2 implements IProduct {
 
 	@Override
 	public void prit() {
-		System.out.println("This product2 name is " + this.name + " and product date is "
+		System.out.println("This product name is " + this.name + " and product date is "
 				+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(this.productTime));
 	}
 
