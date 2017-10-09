@@ -9,6 +9,7 @@ public class BuilderEntity {
 	private String second;
 	private Map<String, Object> params = new HashMap<>();
 
+	public BuilderEntity(){}
 	public BuilderEntity(String first, String second, Map<String, Object> params) {
 		this.first = first;
 		this.second = second;

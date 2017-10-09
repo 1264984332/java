@@ -21,9 +21,9 @@ public class FactoryA implements IAbstractFactory{
 	}
 
 	@Override
-	public ProductA getProduct(String key,String name) {
+	public IProduct getProduct(String key,String name) {
 		if(!"A".equals(key))
-			return null;
+			return  new ProductA2(name);
 		else 
 			return new ProductA(name);
 	}

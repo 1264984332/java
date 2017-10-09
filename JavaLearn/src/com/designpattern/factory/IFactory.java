@@ -4,5 +4,5 @@ import java.util.Date;
 
 public interface IFactory {
 
-	public IProduct getProduct(String name ,Date date);
+	public IProduct getProduct(String key,String name ,Date date);
 }
