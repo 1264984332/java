@@ -1,17 +1,15 @@
 package com.designpattern.factory.abstractfactory;
-
+/**
+ * 产品A
+ * @author zlq
+ *
+ */
 public class ProductA implements IProduct {
 
 	private String name;
 
 	public ProductA(String name) {
 		this.name = name;
-	}
-
-	@Override
-	public ProductA getProduct(String name) {
-
-		return new ProductA(name);
 	}
 
 	@Override

@@ -1,5 +1,9 @@
 package com.designpattern.factory.abstractfactory;
-
+/**
+ * 产品B
+ * @author zlq
+ *
+ */
 public class ProductB implements IProduct {
 	private String name;
 
@@ -7,11 +11,6 @@ public class ProductB implements IProduct {
 		this.name = name;
 	}
 
-	@Override
-	public ProductB getProduct(String name) {
-
-		return new ProductB(name);
-	}
 
 	@Override
 	public void prit() {

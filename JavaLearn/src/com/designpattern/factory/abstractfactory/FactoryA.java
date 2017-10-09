@@ -1,5 +1,10 @@
 package com.designpattern.factory.abstractfactory;
 
+/**
+ * 生产ProductA的工厂
+ * @author zlq
+ *
+ */
 public class FactoryA implements IAbstractFactory{
 
 	private static FactoryA factoryA = null;
