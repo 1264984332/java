@@ -23,6 +23,10 @@ public class SortClass {
 		System.out.println("归并排序： ");
 		mergeSort(array5, 0, 1);
 		print(array5);
+		int[] array6 = { 2, 4, 51, 53, 12, 3, 32, 12, 11, 10 };
+		System.out.println("堆排序： ");
+		heapSort(array6);
+		print(array6);
 	}
 
 	/**
@@ -217,7 +221,64 @@ public class SortClass {
 		}
 		System.arraycopy(tmp, 0, a, s, tmp.length);
 	}
+	/**
+	 * 堆排序
+	 * @param array
+	 */
+	public static void heapSort(int[] array) {  
+        if (array == null || array.length <= 1) {  
+            return;  
+        }  
 
+        buildMaxHeap(array);  //构建最大堆
+        //交换位置，排序，将堆顶跟叶节点交换
+        for (int i = array.length - 1; i >= 1; i--) {  
+            exchangeElements(array, 0, i);  
+            maxHeap(array, i, 0);  //重新构建最大堆
+        }  
+    }  
+
+    private static void buildMaxHeap(int[] array) {  
+        if (array == null || array.length <= 1) {  
+            return;  
+        }  
+
+        int half = array.length / 2;  
+        //从最后的非叶节点开始
+        for (int i = half; i >= 0; i--) {  
+            maxHeap(array, array.length, i);  
+        }  
+    }  
+
+    /**
+     * 构造最大堆
+     * @param array
+     * @param heapSize 堆的大小
+     * @param index 根节点
+     */
+    private static void maxHeap(int[] array, int heapSize, int index) {  
+        int left = index * 2 + 1;  
+        int right = index * 2 + 2;  
+
+        int largest = index;  
+        if (left < heapSize && array[left] > array[index]) {  
+            largest = left;  
+        }  
+
+        if (right < heapSize && array[right] > array[largest]) {  
+            largest = right;  
+        }  
+
+        if (index != largest) {  
+            exchangeElements(array, index, largest);//交互最大堆顶
+            maxHeap(array, heapSize, largest);  //检查是否影响下层
+        }  
+    }  
+    public static void exchangeElements(int[] array, int index1, int index2) {  
+        int temp = array[index1];  
+        array[index1] = array[index2];  
+        array[index2] = temp;  
+    }  
 	public static void print(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
