@@ -1,6 +1,7 @@
 package com.algorithm.divideandconquer;
 
 /**
+ * 大数相乘
  * @author zlq
  * 
  */
