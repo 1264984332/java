@@ -1,8 +1,13 @@
 package com.ioandnio;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.net.InetSocketAddress;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channel;
+import java.nio.channels.FileChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
@@ -66,4 +71,29 @@ public class NioSocketDemo {
 			}
 		}
 	}
+	
+	
+	public void gatherAndScagtter(SelectionKey selectionKey) throws IOException{
+		ByteBuffer first = ByteBuffer.allocate(1024);
+		ByteBuffer second = ByteBuffer.allocate(1024);
+		ByteBuffer [] buffArr = {first,second};
+		SocketChannel channel  =(SocketChannel)selectionKey.channel();
+		channel.read(buffArr);
+		channel.write(buffArr);
+	}
+	
+	public void fileChannel() throws IOException{
+		RandomAccessFile file = new RandomAccessFile("", "rw");
+		FileChannel channel = file.getChannel();//打开
+		ByteBuffer buffer = ByteBuffer.allocate(1024);
+		int data = channel.read(buffer);//读数据
+		channel.write(buffer);//写数据
+		long size = (int) channel.size();//关联文件的大小
+		
+		channel.truncate(1024);//截取文件
+		channel.force(false);//强制写到磁盘  false不写入元数据（权限信息等）,true写入元数据
+		channel.close();//关闭
+	}
+	
+	
 }
