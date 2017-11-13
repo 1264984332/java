@@ -1,5 +1,9 @@
 package com.thread;
-
+/**
+ * 使当前线程从执行状态（运行状态）变为可执行态（就绪状态）
+ * @author zlq
+ *
+ */
 public class YieldClass {
 
 	public static void main(String[] args) {

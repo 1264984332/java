@@ -13,6 +13,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 public class NioSocketDemo {
 
@@ -95,5 +96,15 @@ public class NioSocketDemo {
 		channel.close();//关闭
 	}
 	
+	
+	public void serverSocketChannel() throws IOException{
+		ServerSocketChannel channel = ServerSocketChannel.open();//打开
+		channel.bind(new InetSocketAddress(9999));//绑定端口
+		channel.configureBlocking(false);//设置非阻塞
+		while(true){
+			channel.accept();//监听新进来的TCP连接
+		}
+		//channel.close();//关闭
+	}
 	
 }
