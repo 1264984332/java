@@ -12,6 +12,8 @@ public class YieldClass {
 		System.out.println("yield start");
 		yThread.yield();
 		System.out.println("yield end");
+		
+		YieldClass[] yieldClasses = new YieldClass[10];
 	}
 	private static class  yieldThread extends Thread{
 		@Override
