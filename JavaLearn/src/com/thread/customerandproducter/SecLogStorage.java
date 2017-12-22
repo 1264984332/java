@@ -2,7 +2,7 @@ package com.thread.customerandproducter;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.alibaba.fastjson.JSONObject;
+/*import com.alibaba.fastjson.JSONObject;*/
 
 public class SecLogStorage {
 
@@ -29,7 +29,7 @@ public class SecLogStorage {
         }
     	try {
 			blockingQueue.add(entity);
-			 System.out.println("生产SecLog："+ JSONObject.toJSONString(entity));
+			 /*System.out.println("生产SecLog："+ JSONObject.toJSONString(entity));*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,7 +41,7 @@ public class SecLogStorage {
         }
         try {
             entity = blockingQueue.take();
-            System.out.println("消费SecLog："+JSONObject.toJSONString(entity));
+           /* System.out.println("消费SecLog："+JSONObject.toJSONString(entity));*/
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
