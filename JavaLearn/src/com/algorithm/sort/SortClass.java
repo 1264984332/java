@@ -2,7 +2,10 @@ package com.algorithm.sort;
 
 public class SortClass {
 
+	
+
 	public static void main(String[] args) {
+
 		int[] array1 = { 2, 4, 51, 53, 12, 3, 32, 12, 11, 10 };
 		bubbleSort(array1);
 		System.out.println("冒泡排序： ");
@@ -31,7 +34,7 @@ public class SortClass {
 
 	/**
 	 * 冒泡排序
-	 * 
+	 *
 	 * @param array
 	 *            数组
 	 */
@@ -52,7 +55,7 @@ public class SortClass {
 
 	/**
 	 * 选择排序
-	 * 
+	 *
 	 * @param array
 	 *            数组
 	 */
@@ -77,7 +80,7 @@ public class SortClass {
 
 	/**
 	 * 快速排序
-	 * 
+	 *
 	 * @param array
 	 *            数组
 	 * @param f
@@ -117,7 +120,7 @@ public class SortClass {
 
 	/**
 	 * 插入排序
-	 * 
+	 *
 	 * @param array
 	 *            数组
 	 */
@@ -156,7 +159,7 @@ public class SortClass {
 	}
 	/**
 	 * 归并排序 主程序
-	 * 
+	 *
 	 * @param a
 	 *            数组
 	 * @param s
@@ -185,7 +188,7 @@ public class SortClass {
 
 	/**
 	 * 归并排序的合并
-	 * 
+	 *
 	 * @param a
 	 *            数组
 	 * @param s
@@ -225,30 +228,30 @@ public class SortClass {
 	 * 堆排序
 	 * @param array
 	 */
-	public static void heapSort(int[] array) {  
-        if (array == null || array.length <= 1) {  
-            return;  
-        }  
+	public static void heapSort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
 
         buildMaxHeap(array);  //构建最大堆
         //交换位置，排序，将堆顶跟叶节点交换
-        for (int i = array.length - 1; i >= 1; i--) {  
-            exchangeElements(array, 0, i);  
+        for (int i = array.length - 1; i >= 1; i--) {
+            exchangeElements(array, 0, i);
             maxHeap(array, i, 0);  //重新构建最大堆
-        }  
-    }  
+        }
+    }
 
-    private static void buildMaxHeap(int[] array) {  
-        if (array == null || array.length <= 1) {  
-            return;  
-        }  
+    private static void buildMaxHeap(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
 
-        int half = array.length / 2;  
+        int half = array.length / 2;
         //从最后的非叶节点开始
-        for (int i = half; i >= 0; i--) {  
-            maxHeap(array, array.length, i);  
-        }  
-    }  
+        for (int i = half; i >= 0; i--) {
+            maxHeap(array, array.length, i);
+        }
+    }
 
     /**
      * 构造最大堆
@@ -256,29 +259,29 @@ public class SortClass {
      * @param heapSize 堆的大小
      * @param index 根节点
      */
-    private static void maxHeap(int[] array, int heapSize, int index) {  
-        int left = index * 2 + 1;  
-        int right = index * 2 + 2;  
+    private static void maxHeap(int[] array, int heapSize, int index) {
+        int left = index * 2 + 1;
+        int right = index * 2 + 2;
 
-        int largest = index;  
-        if (left < heapSize && array[left] > array[index]) {  
-            largest = left;  
-        }  
+        int largest = index;
+        if (left < heapSize && array[left] > array[index]) {
+            largest = left;
+        }
 
-        if (right < heapSize && array[right] > array[largest]) {  
-            largest = right;  
-        }  
+        if (right < heapSize && array[right] > array[largest]) {
+            largest = right;
+        }
 
-        if (index != largest) {  
+        if (index != largest) {
             exchangeElements(array, index, largest);//交互最大堆顶
             maxHeap(array, heapSize, largest);  //检查是否影响下层
-        }  
-    }  
-    public static void exchangeElements(int[] array, int index1, int index2) {  
-        int temp = array[index1];  
-        array[index1] = array[index2];  
-        array[index2] = temp;  
-    }  
+        }
+    }
+    public static void exchangeElements(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
 	public static void print(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");

@@ -1,14 +1,10 @@
 package com.thread.threadpool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * 获得三种线程池
- * 
+ *
  * @author Administrator
  *
  */
@@ -43,6 +39,7 @@ public class MyThreadPool {
 	}
 
 	public static ExecutorService newCacheThreadPool() {
+		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 		if (cacheThreadPool == null) {
 			synchronized (MyThreadPool.class) {
 				if (cacheThreadPool == null)

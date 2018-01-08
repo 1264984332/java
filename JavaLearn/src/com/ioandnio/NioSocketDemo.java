@@ -18,14 +18,15 @@ import java.util.LinkedHashMap;
 public class NioSocketDemo {
 
 	private Selector selector;//通道选择器
-	
+
 	public static void main(String[] args) throws IOException {
+
 		NioSocketDemo nioSocketDemo = new NioSocketDemo();
 		nioSocketDemo.initServer(8888);
 		nioSocketDemo.lisenterSelector();
 	}
-	
-	
+
+
 	public void initServer(int port) throws IOException{
 		ServerSocketChannel serverChannel = ServerSocketChannel.open();
 		serverChannel.configureBlocking(false);//设置非阻塞
@@ -49,7 +50,7 @@ public class NioSocketDemo {
 			}
 		}
 	}
-	
+
 	public void handler(SelectionKey selectionKey) throws IOException{
 		if(selectionKey.isAcceptable()){
 			//处理客户端连接请求
@@ -72,8 +73,8 @@ public class NioSocketDemo {
 			}
 		}
 	}
-	
-	
+
+
 	public void gatherAndScagtter(SelectionKey selectionKey) throws IOException{
 		ByteBuffer first = ByteBuffer.allocate(1024);
 		ByteBuffer second = ByteBuffer.allocate(1024);
@@ -82,7 +83,7 @@ public class NioSocketDemo {
 		channel.read(buffArr);
 		channel.write(buffArr);
 	}
-	
+
 	public void fileChannel() throws IOException{
 		RandomAccessFile file = new RandomAccessFile("", "rw");
 		FileChannel channel = file.getChannel();//打开
@@ -90,13 +91,13 @@ public class NioSocketDemo {
 		int data = channel.read(buffer);//读数据
 		channel.write(buffer);//写数据
 		long size = (int) channel.size();//关联文件的大小
-		
+
 		channel.truncate(1024);//截取文件
 		channel.force(false);//强制写到磁盘  false不写入元数据（权限信息等）,true写入元数据
 		channel.close();//关闭
 	}
-	
-	
+
+
 	public void serverSocketChannel() throws IOException{
 		ServerSocketChannel channel = ServerSocketChannel.open();//打开
 		channel.bind(new InetSocketAddress(9999));//绑定端口
@@ -106,5 +107,5 @@ public class NioSocketDemo {
 		}
 		//channel.close();//关闭
 	}
-	
+
 }
