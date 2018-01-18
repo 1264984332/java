@@ -16,7 +16,7 @@ public class CyclicBarrierClass {
         for (int i = 0; i < 5; i++) {
             new Thread(new readNum(i,cyclicBarrier)).start();
         }
-        //CyclicBarrier 可以重复利用，
+        //CyclicBarrierClass 可以重复利用，
         // 这个是CountDownLatch做不到的
 /*        for (int i = 11; i < 16; i++) {
             new Thread(new readNum(i,cyclicBarrier)).start();

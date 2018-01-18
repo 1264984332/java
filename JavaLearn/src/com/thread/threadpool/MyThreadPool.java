@@ -39,7 +39,7 @@ public class MyThreadPool {
 	}
 
 	public static ExecutorService newCacheThreadPool() {
-		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+		//ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 		if (cacheThreadPool == null) {
 			synchronized (MyThreadPool.class) {
 				if (cacheThreadPool == null)
